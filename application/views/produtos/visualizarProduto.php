@@ -43,12 +43,6 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="text-align: right"><strong>Estoque</strong></td>
-                            <td>
-                                <?php echo $result->estoque; ?>
-                            </td>
-                        </tr>
-                        <tr>
                             <td style="text-align: right"><strong>Estoque Mínimo</strong></td>
                             <td>
                                 <?php echo $result->estoqueMinimo; ?>
