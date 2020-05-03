@@ -66,6 +66,7 @@ class Produtos extends MY_Controller
                 'codDeBarra' => set_value('codDeBarra'),
                 'descricao' => set_value('descricao'),
                 'unidade' => set_value('unidade'),
+                //'unidade' => set_value('embalagem'),
                 'precoCompra' => $precoCompra,
                 'precoVenda' => $precoVenda,
                 'estoque' => set_value('estoque'),

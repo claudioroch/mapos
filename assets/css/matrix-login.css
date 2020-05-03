@@ -7,7 +7,7 @@ body {
 }
 a{color:#666;}
 a:hover, a:focus {
- text-decoration: none; color:#28b779;
+ text-decoration: none; color:#27A9E3;
 }
 .dropdown-menu .divider{ margin:4px 0px;}
 .dropdown-menu{ min-width:180px;}
@@ -29,8 +29,8 @@ hr{ border-top-color:#dadada;}
 /*Metro Background color class*/
 .bg_lb{ background:#27a9e3;}
 .bg_db{ background:#2295c9;}
-.bg_lg{ background:#28b779;}
-.bg_dg{ background:#28b779;}
+.bg_lg{ background:#27A9E3;}
+.bg_dg{ background:#27A9E3;}
 .bg_ly{ background:#ffb848;}
 .bg_dy{ background:#da9628;}
 .bg_ls{ background:#2255a4;}

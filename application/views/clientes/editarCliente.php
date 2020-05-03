@@ -91,6 +91,12 @@
                             <input id="estado" type="text" name="estado" value="<?php echo $result->estado; ?>" />
                         </div>
                     </div>
+                    <div class="control-group" class="control-label">
+                        <label for="responsavel" class="control-label">responsavel<span class="required">*</span></label>
+                        <div class="controls">
+                            <input id="responsavel" type="text" name="responsavel" value="<?php echo $result->responsavel; ?>" />
+                        </div>
+                    </div>
 
                     <div class="form-actions">
                         <div class="span12">

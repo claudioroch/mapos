@@ -17,7 +17,7 @@
 } ?>
                 <form action="<?php echo current_url(); ?>" id="formCliente" method="post" class="form-horizontal">
                     <div class="control-group">
-                        <label for="nomeCliente" class="control-label">Nome<span class="required">*</span></label>
+                        <label for="nomeCliente" class="control-label">Empresa<span class="required">*</span></label>
                         <div class="controls">
                             <input id="nomeCliente" type="text" name="nomeCliente" value="<?php echo set_value('nomeCliente'); ?>" />
                         </div>
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label for="telefone" class="control-label">Telefone<span class="required">*</span></label>
+                        <label for="telefone" class="control-label">Tel. Fixo<span class="required">*</span></label>
                         <div class="controls">
                             <input id="telefone" type="text" name="telefone" value="<?php echo set_value('telefone'); ?>" />
                         </div>
@@ -90,7 +90,12 @@
                             <input id="estado" type="text" name="estado" value="<?php echo set_value('estado'); ?>" />
                         </div>
                     </div>
-
+                    <div class="control-group" class="control-label">
+                        <label for="responsavel" class="control-label">Responsável<span class="required">*</span></label>
+                        <div class="controls">
+                            <input id="responsavel" type="text" name="responsavel" value="<?php echo set_value('responsavel'); ?>" />
+                        </div>
+                    </div>
 
 
                     <div class="form-actions">
@@ -142,6 +147,9 @@
                 },
                 cep: {
                     required: true
+                },
+                responsavel: {
+                    required: true
                 }
             },
             messages: {
@@ -173,6 +181,9 @@
                     required: 'Campo Requerido.'
                 },
                 cep: {
+                    required: 'Campo Requerido.'
+                },
+                responsavel: {
                     required: 'Campo Requerido.'
                 }
 

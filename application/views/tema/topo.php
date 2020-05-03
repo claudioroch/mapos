@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-  <title><?= $configuration['app_name'] ?: 'Map-OS' ?></title>
+  <title><?= $configuration['app_name'] ?: 'DoctorMap-OS' ?></title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" type="image/png" href="<?= base_url(); ?>assets/img/favicon.png"/>
@@ -55,7 +55,7 @@
 <body>
   <!--Header-part-->
   <div id="header">
-    <h1><a href=""> <?= $configuration['app_name'] ?: 'Map-OS' ?> </a></h1>
+    <h1><a href=""> <?= $configuration['app_name'] ?: 'DoctorMap-OS' ?> </a></h1>
   </div>
   <!--close-Header-part-->
   <!--top-Header-menu-->

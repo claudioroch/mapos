@@ -15,7 +15,7 @@
             <thead>
                 <tr>
                     <th>Cod.</th>
-                    <th>Nome</th>
+                    <th>Empresa</th>
                     <th>CPF/CNPJ</th>
                     <th>Telefone</th>
                     <th>Email</th>

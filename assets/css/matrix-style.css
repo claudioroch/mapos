@@ -13,7 +13,7 @@ body {
 }
 a{color:#666;}
 a:hover, a:focus {
-	text-decoration: none; color:#28b779;
+	text-decoration: none; color:#27A9E3;
 }
 .dropdown-menu .divider{ margin:4px 0px;}
 .dropdown-menu{ min-width:180px;}
@@ -36,7 +36,7 @@ hr{ border-top-color:#dadada;}
 .bg_lb{ background:#1f6377;}
 .bg_db{ background:#24748c;}
 .bg_lg{ background:#a5d24a;}
-.bg_dg{ background:#28b779;}
+.bg_dg{ background:#27A9E3;}
 .bg_ly{ background:#ee5f5b;}
 .bg_dy{ background:#da9628;}
 .bg_ls{ background:#7ab5d3;}
@@ -54,7 +54,7 @@ hr{ border-top-color:#dadada;}
 }
 #header h1 {
 	background: url("../img/logo.png") no-repeat scroll 0 0 transparent;
-	height: 31px;
+	height:31px;
 	left: 20px;
 	line-height: 600px;
 	overflow: hidden;
@@ -1196,7 +1196,7 @@ form {
 }
 /***********Error Page******************/
 .error_ex{ text-align:center;}
-.error_ex h1{ font-size:140px; font-weight:bold; padding:50px 0; color:#28B779}
+.error_ex h1{ font-size:140px; font-weight:bold; padding:50px 0; color:#27A9E3}
 
 #sidebar  .content {
     padding:10px;

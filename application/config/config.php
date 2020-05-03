@@ -9,7 +9,8 @@ $config['app_version'] = '4.4.0';
 /**
  * Nome do sistema
  */
-$config['app_name'] = 'Map-OS';
+//$config['app_name'] = 'Map-OS';
+$config['app_name'] = 'Doctor Store';
 
 /**
  * Descrição do sistema
@@ -39,7 +40,8 @@ $config['app_subname'] = 'Sistema de Controle de Ordens de Serviço';
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'enter_baseurl';
+$config['base_url'] = 'http://localhost/mapos';
+//$config['base_url'] = 'http://crsolucoesti.ddns.net/mapos';
 
 /*
 |--------------------------------------------------------------------------

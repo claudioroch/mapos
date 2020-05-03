@@ -82,7 +82,7 @@ ul.wysihtml5-toolbar div[data-wysihtml5-command-value="purple"] {
 }
 
 ul.wysihtml5-toolbar div[data-wysihtml5-command-value="green"] {
-  background: green !important;
+  background: teal !important;
 }
 
 ul.wysihtml5-toolbar div[data-wysihtml5-command-value="olive"] {

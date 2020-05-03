@@ -69,6 +69,8 @@ class Clientes extends MY_Controller
                 'estado' => set_value('estado'),
                 'cep' => set_value('cep'),
                 'dataCadastro' => date('Y-m-d'),
+                'responsavel' => set_value('responsavel'),
+
             ];
 
             if ($this->clientes_model->add('clientes', $data) == true) {
@@ -114,6 +116,7 @@ class Clientes extends MY_Controller
                 'cidade' => $this->input->post('cidade'),
                 'estado' => $this->input->post('estado'),
                 'cep' => $this->input->post('cep'),
+                'responsavel' => $this ->input->post('responsavel'),
             ];
 
             if ($this->clientes_model->edit('clientes', $data, 'idClientes', $this->input->post('idClientes')) == true) {

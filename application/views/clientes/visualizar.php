@@ -131,6 +131,12 @@
                                             <?php echo $result->cep ?>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td style="text-align: right"><strong>Responsável</strong></td>
+                                        <td>
+                                            <?php echo $result->responsavel ?>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

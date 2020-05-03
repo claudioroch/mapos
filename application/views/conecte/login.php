@@ -49,7 +49,7 @@
                 </div>
             <?php } ?>
             <div class="control-group normal_text">
-                <h3><img src="<?php echo base_url() ?>assets/img/logo.png" alt="Logo" /></h3>
+                <h3><img src="<?php echo base_url() ?>assets/img/logo_Drs.png" alt="Logo" /></h3>
             </div>
             <div class="control-group">
                 <div class="controls">
