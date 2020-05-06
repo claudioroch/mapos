@@ -58,24 +58,22 @@ class Produtos extends MY_Controller
         if ($this->form_validation->run('produtos') == false) {
             $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
         } else {
-            $precoCompra = $this->input->post('precoCompra');
-            $precoCompra = str_replace(",", "", $precoCompra);
+            $precoDiluido = $this->input->post('precoCompra');
+            $precoDiluido = str_replace(",", "", $precoDiluido);
             $precoVenda = $this->input->post('precoVenda');
             $precoVenda = str_replace(",", "", $precoVenda);
             $data = [
                 'codDeBarra' => set_value('codDeBarra'),
-                'nome' => set_value('nome'),
+                'produto' => set_value('produto'),
                 'embalagem' => set_value('embalagem'),
-                'rendimento' => set_value('rendimento'),
+                'unidade' => set_value('unidade'),
+                'rendimento'=> set_value('rendimento'),
+                'estoqueMinimo' => set_value('estoqueMinimo'),
                 'diluicao' => set_value('diluicao'),
                 'descricao' => set_value('descricao'),
-                'unidade' => set_value('unidade'),                
-                'precoCompra' => $precoCompra,
                 'precoVenda' => $precoVenda,
-                'estoque' => set_value('estoque'),
-                'estoqueMinimo' => set_value('estoqueMinimo'),
-                'saida' => set_value('saida'),
-                'entrada' => set_value('entrada'),
+                'precoDiluido' => $precoDiluido,
+                'utilizacao'=> set_value('utilizacao'),
             ];
 
             if ($this->produtos_model->add('produtos', $data) == true) {
@@ -107,24 +105,22 @@ class Produtos extends MY_Controller
         if ($this->form_validation->run('produtos') == false) {
             $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
         } else {
-            $precoCompra = $this->input->post('precoCompra');
-            $precoCompra = str_replace(",", "", $precoCompra);
+            $precoDiluido = $this->input->post('precoCompra');
+            $precoDiluido = str_replace(",", "", $precoDiluido);
             $precoVenda = $this->input->post('precoVenda');
             $precoVenda = str_replace(",", "", $precoVenda);
             $data = [
                 'codDeBarra' => set_value('codDeBarra'),
-                'produto' => $this->input->post('produto'),
-                'embalagem' => $this->input->post('embalagem'),
-                'rendimento' => $this->input->post('rendimento'),
-                'diluicao' => $this->input->post('diluicao'),
                 'descricao' => $this->input->post('descricao'),
                 'unidade' => $this->input->post('unidade'),
-                'precoCompra' => $precoCompra,
+                'precoCompra' => $precoDiluido,
                 'precoVenda' => $precoVenda,
-                'estoque' => $this->input->post('estoque'),
                 'estoqueMinimo' => $this->input->post('estoqueMinimo'),
-                'saida' => set_value('saida'),
-                'entrada' => set_value('entrada'),
+                'produto' => set_value('produto'),
+                'embalagem' => set_value('embalagem'),
+                'rendimento'=> set_value('rendimento'),
+                'diluicao' => set_value('diluicao'),
+                'utilizacao'=> set_value('utilizacao'),                
             ];
 
             if ($this->produtos_model->edit('produtos', $data, 'idProdutos', $this->input->post('idProdutos')) == true) {

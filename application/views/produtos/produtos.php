@@ -18,10 +18,9 @@
             <tr style="backgroud-color: #2D335B">
                 <th>Cod. Produto</th>
                 <th>Código de Barra</th>
-                <th>Nome</th>
+                <th>Produto</th>
                 <th>Estoque</th>
                 <th>Preço</th>
-                <th>Ações</th>
             </tr>
             </thead>
             <tbody>
@@ -36,8 +35,9 @@
                 echo '<tr>';
                 echo '<td>' . $r->idProdutos . '</td>';
                 echo '<td>' . $r->codDeBarra . '</td>';
+                echo '<td>' . $r->produto . '</td>';
                 echo '<td>' . $r->descricao . '</td>';
-                echo '<td>' . $r->estoque . '</td>';
+                // echo '<td>' . $r->precoVenda . '</td>';
                 echo '<td>' . number_format($r->precoVenda, 2, ',', '.') . '</td>';
                 echo '<td>';
                 if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vProduto')) {

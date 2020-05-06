@@ -19,6 +19,12 @@
                             </td>
                         </tr>
                         <tr>
+                            <td style="text-align: right; width: 30%"><strong>Produto</strong></td>
+                            <td>
+                                <?php echo $result->produto ?>
+                            </td>
+                        </tr>
+                        <tr>
                             <td style="text-align: right; width: 30%"><strong>Descrição</strong></td>
                             <td>
                                 <?php echo $result->descricao ?>
@@ -31,7 +37,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="text-align: right"><strong>Preço de Compra</strong></td>
+                            <td style="text-align: right"><strong>Preço Diluído</strong></td>
                             <td>R$
                                 <?php echo $result->precoCompra; ?>
                             </td>
@@ -40,6 +46,12 @@
                             <td style="text-align: right"><strong>Preço de Venda</strong></td>
                             <td>R$
                                 <?php echo $result->precoVenda; ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right"><strong>Estoque</strong></td>
+                            <td>
+                                <?php echo $result->estoque; ?>
                             </td>
                         </tr>
                         <tr>
