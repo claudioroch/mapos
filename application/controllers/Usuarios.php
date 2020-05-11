@@ -71,6 +71,8 @@ class Usuarios extends MY_Controller
                 'situacao' => set_value('situacao'),
                 'permissoes_id' => $this->input->post('permissoes_id'),
                 'dataCadastro' => date('Y-m-d'),
+                'complemento' => set_value('complemento'),
+                'cep' => set_value('cep'),
             ];
 
             if ($this->usuarios_model->add('usuarios', $data) == true) {
@@ -106,7 +108,7 @@ class Usuarios extends MY_Controller
         $this->form_validation->set_rules('cidade', 'Cidade', 'trim|required');
         $this->form_validation->set_rules('estado', 'Estado', 'trim|required');
         $this->form_validation->set_rules('email', 'Email', 'trim|required');
-        $this->form_validation->set_rules('telefone', 'Telefone', 'trim|required');
+        $this->form_validation->set_rules('celular', 'celular', 'trim|required');
         $this->form_validation->set_rules('situacao', 'Situação', 'trim|required');
         $this->form_validation->set_rules('permissoes_id', 'Permissão', 'trim|required');
 
@@ -126,6 +128,7 @@ class Usuarios extends MY_Controller
                     'nome' => $this->input->post('nome'),
                     'rg' => $this->input->post('rg'),
                     'cpf' => $this->input->post('cpf'),
+                    'cep' => $this->input->post('cep'),
                     'rua' => $this->input->post('rua'),
                     'numero' => $this->input->post('numero'),
                     'bairro' => $this->input->post('bairro'),
@@ -137,6 +140,7 @@ class Usuarios extends MY_Controller
                     'celular' => $this->input->post('celular'),
                     'dataExpiracao' => set_value('dataExpiracao'),
                     'situacao' => $this->input->post('situacao'),
+                    'complemento' => $this->input->post('complemento'),
                     'permissoes_id' => $this->input->post('permissoes_id'),
                 ];
             } else {
@@ -144,6 +148,7 @@ class Usuarios extends MY_Controller
                     'nome' => $this->input->post('nome'),
                     'rg' => $this->input->post('rg'),
                     'cpf' => $this->input->post('cpf'),
+                    'cep' => $this->input->post('cep'),
                     'rua' => $this->input->post('rua'),
                     'numero' => $this->input->post('numero'),
                     'bairro' => $this->input->post('bairro'),
@@ -154,6 +159,7 @@ class Usuarios extends MY_Controller
                     'celular' => $this->input->post('celular'),
                     'dataExpiracao' => set_value('dataExpiracao'),
                     'situacao' => $this->input->post('situacao'),
+                    'complemento' => $this->input->post('complemento'),
                     'permissoes_id' => $this->input->post('permissoes_id'),
                 ];
             }

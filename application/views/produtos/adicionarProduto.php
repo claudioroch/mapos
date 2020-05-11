@@ -37,18 +37,22 @@
             <div class="widget-content nopadding">
                 <?php echo $custom_error; ?>
                 <form action="<?php echo current_url(); ?>" id="formProduto" method="post" class="form-horizontal">
-                    <div class="control-group">
-                        <label for="codDeBarra" class="control-label">Código de Barra<span class=""></span></label>
-                        <div class="controls">
-                            <input id="codDeBarra" type="text" name="codDeBarra" value="<?php echo set_value('codDeBarra'); ?>" />
+                <div class="span4">    
+                        <div class="control-group">
+                            <label for="codDeBarra" class="control-label">Código de Barra<span class=""></span></label>
+                            <div class="controls">
+                                <input id="codDeBarra"  type="text" name="codDeBarra" value="<?php echo set_value('codDeBarra'); ?>" />
+                            </div>
                         </div>
-                    </div>
+                </div>
+                <div class="span8">
                     <div class="control-group">
                         <label for="produto" class="control-label">Produto<span class="required">*</span></label>
                         <div class="controls">
                             <input id="produto" type="text" name="produto" value="<?php echo set_value('produto'); ?>" />
                         </div>
                     </div>
+                </div>
                     <div class="control-group">
                         <label for="embalagem" class="control-label">Embalagem<span class="required">*</span></label>
                         <div class="controls">
@@ -70,7 +74,8 @@
                     <div class="control-group">
                         <label for="descricao" class="control-label">Descrição<span class="required">*</span></label>
                         <div class="controls">
-                            <input id="descricao" type="text" name="descricao" value="<?php echo set_value('descricao'); ?>" />
+                            <!-- <input id="descricao" type="text" name="descricao" value="<?php echo set_value('descricao'); ?>" /> -->
+                            <textarea name="descricao" id="descricao" cols="30" rows="10"><?php echo set_value('descricao'); ?></textarea>
                         </div>
                     </div>
                     <div class="control-group">
@@ -125,7 +130,7 @@
                     <div class="form-actions">
                         <div class="span12">
                             <div class="span6 offset3">
-                                <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Adicionar</button>
+                                <button type="submit" class="btn btn-danger"><i class="fas fa-plus"></i> Adicionar</button>
                                 <a href="<?php echo base_url() ?>index.php/produtos" id="" class="btn"><i class="fas fa-backward"></i> Voltar</a>
                             </div>
                         </div>

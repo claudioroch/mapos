@@ -38,14 +38,14 @@
                     </div>
 
                     <div class="control-group">
-                        <label for="telefone" class="control-label">Telefone<span class="required">*</span></label>
+                        <label for="telefone" class="control-label">Telefone</label>
                         <div class="controls">
                             <input id="telefone" type="text" name="telefone" value="<?php echo set_value('telefone'); ?>" />
                         </div>
                     </div>
 
                     <div class="control-group">
-                        <label for="celular" class="control-label">Celular</label>
+                        <label for="celular" class="control-label">Celular<span class="required">*</span></label>
                         <div class="controls">
                             <input id="celular" type="text" name="celular" value="<?php echo set_value('celular'); ?>" />
                         </div>
@@ -86,7 +86,12 @@
                             <input id="numero" type="text" name="numero" value="<?php echo set_value('numero'); ?>" />
                         </div>
                     </div>
-
+                    <div class="control-group">
+                        <label for="complemento" class="control-label">Complemento</label>
+                        <div class="controls">
+                            <input id="complemento" type="text" name="complemento" value="<?php echo set_value('complemento'); ?>" />
+                        </div>
+                    </div>
                     <div class="control-group">
                         <label for="bairro" class="control-label">Bairro<span class="required">*</span></label>
                         <div class="controls">
@@ -170,7 +175,7 @@
                 cpf: {
                     required: true
                 },
-                telefone: {
+                celular: {
                     required: true
                 },
                 email: {
@@ -208,7 +213,7 @@
                 cpf: {
                     required: 'Campo Requerido.'
                 },
-                telefone: {
+                celular: {
                     required: 'Campo Requerido.'
                 },
                 email: {
