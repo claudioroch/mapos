@@ -42,7 +42,7 @@
                 <div id="progress-acessar" class='hide progress progress-info progress-striped active'>
                     <div class='bar' style='width: 100%'></div>
                 </div>
-                <button id="btn-acessar" class="btn btn-success btn-large" /> Acessar</button>
+                <button id="btn-acessar" class="btn btn-danger btn-large" /> Acessar</button>
             </div>
         </form>
 

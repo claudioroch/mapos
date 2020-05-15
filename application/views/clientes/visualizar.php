@@ -29,13 +29,13 @@
                             <table class="table table-bordered">
                                 <tbody>
                                     <tr>
-                                        <td style="text-align: right; width: 30%"><strong>Nome</strong></td>
+                                        <td style="text-align: right; width: 30%"><strong>Empresa/Nome</strong></td>
                                         <td>
                                             <?php echo $result->nomeCliente ?>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: right"><strong>Documento</strong></td>
+                                        <td style="text-align: right"><strong>CNPJ/CPF</strong></td>
                                         <td>
                                             <?php echo $result->documento ?>
                                         </td>
@@ -44,6 +44,12 @@
                                         <td style="text-align: right"><strong>Data de Cadastro</strong></td>
                                         <td>
                                             <?php echo date('d/m/Y', strtotime($result->dataCadastro)) ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: right"><strong>Responsável</strong></td>
+                                        <td>
+                                            <?php echo $result->responsavel ?>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -129,12 +135,6 @@
                                         <td style="text-align: right"><strong>CEP</strong></td>
                                         <td>
                                             <?php echo $result->cep ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="text-align: right"><strong>Responsável</strong></td>
-                                        <td>
-                                            <?php echo $result->responsavel ?>
                                         </td>
                                     </tr>
                                 </tbody>

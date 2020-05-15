@@ -37,22 +37,19 @@
             <div class="widget-content nopadding">
                 <?php echo $custom_error; ?>
                 <form action="<?php echo current_url(); ?>" id="formProduto" method="post" class="form-horizontal">
-                <div class="span4">    
-                        <div class="control-group">
+                    <div class="control-group">
                             <label for="codDeBarra" class="control-label">Código de Barra<span class=""></span></label>
                             <div class="controls">
                                 <input id="codDeBarra"  type="text" name="codDeBarra" value="<?php echo set_value('codDeBarra'); ?>" />
                             </div>
                         </div>
-                </div>
-                <div class="span8">
                     <div class="control-group">
                         <label for="produto" class="control-label">Produto<span class="required">*</span></label>
                         <div class="controls">
                             <input id="produto" type="text" name="produto" value="<?php echo set_value('produto'); ?>" />
                         </div>
                     </div>
-                </div>
+                
                     <div class="control-group">
                         <label for="embalagem" class="control-label">Embalagem<span class="required">*</span></label>
                         <div class="controls">
