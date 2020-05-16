@@ -80,4 +80,20 @@ class Produtos_model extends CI_Model
         $sql = "UPDATE produtos set estoque = estoque $operacao ? WHERE idProdutos = ?";
         return $this->db->query($sql, [$quantidade, $produto]);
     }
+    public function anexar($os, $anexo, $url, $thumb, $path)
+    {
+        $this->db->set('anexo', $anexo);
+        $this->db->set('url', $url);
+        $this->db->set('thumb', $thumb);
+        $this->db->set('path', $path);
+        $this->db->set('produto_id', $os);
+
+        return $this->db->insert('anexos_produtos');
+    }
+
+    public function getAnexos($os)
+    {
+        $this->db->where('produto_id', $os);
+        return $this->db->get('anexos_produtos')->result();
+    }
 }

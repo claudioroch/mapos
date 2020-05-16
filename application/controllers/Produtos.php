@@ -64,7 +64,7 @@ class Produtos extends MY_Controller
             $precoVenda = str_replace(",", "", $precoVenda);
             $data = [
                 'codDeBarra' => set_value('codDeBarra'),
-                'nome' => set_value('nome'),
+                'produto' => set_value('produto'),
                 'embalagem' => set_value('embalagem'),
                 'rendimento' => set_value('rendimento'),
                 'diluicao' => set_value('diluicao'),
@@ -137,9 +137,107 @@ class Produtos extends MY_Controller
         }
 
         $this->data['result'] = $this->produtos_model->getById($this->uri->segment(3));
-
+        $this->data['anexos'] = $this->produtos_model->getAnexos($this->uri->segment(3));
         $this->data['view'] = 'produtos/editarProduto';
         return $this->layout();
+    }
+    public function anexar()
+    {
+
+        $this->load->library('upload');
+        $this->load->library('image_lib');
+
+        $upload_conf = array(
+            'upload_path' => realpath('./assets/anexosproduto'),
+            'allowed_types' => 'jpg|png|gif|jpeg|JPG|PNG|GIF|JPEG|pdf|PDF|cdr|CDR|docx|DOCX|txt', // formatos permitidos para anexos de os
+            'max_size' => 0,
+        );
+
+        $this->upload->initialize($upload_conf);
+
+        foreach ($_FILES['userfile'] as $key => $val) {
+            $i = 1;
+            foreach ($val as $v) {
+                $field_name = "file_" . $i;
+                $_FILES[$field_name][$key] = $v;
+                $i++;
+            }
+        }
+        unset($_FILES['userfile']);
+
+        $error = array();
+        $success = array();
+
+        foreach ($_FILES as $field_name => $file) {
+            if (!$this->upload->do_upload($field_name)) {
+                $error['upload'][] = $this->upload->display_errors();
+            } else {
+
+                $upload_data = $this->upload->data();
+
+                if ($upload_data['is_image'] == 1) {
+
+                    // set the resize config
+                    $resize_conf = array(
+
+                        'source_image' => $upload_data['full_path'],
+                        'new_image' => $upload_data['file_path'] . 'thumbs/thumb_' . $upload_data['file_name'],
+                        'width' => 200,
+                        'height' => 125,
+                    );
+
+                    $this->image_lib->initialize($resize_conf);
+
+                    if (!$this->image_lib->resize()) {
+                        $error['resize'][] = $this->image_lib->display_errors();
+                    } else {
+                        $success[] = $upload_data;
+                        $this->load->model('Produtos_model');
+                        $this->Produtos_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexosproduto/', 'thumb_' . $upload_data['file_name'], realpath('./assets/anexosproduto/'));
+                    }
+                } else {
+
+                    $success[] = $upload_data;
+
+                    $this->load->model('Produtos_model');
+
+
+                    $this->Produtos_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexosproduto/', '', realpath('./assets/anexosproduto/'));
+                }
+            }
+        }
+
+        if (count($error) > 0) {
+            echo json_encode(array('result' => false, 'mensagem' => 'Nenhum arquivo foi anexado.'));
+        } else {
+
+            log_info('Adicionou anexo(s) a um produto.');
+            echo json_encode(array('result' => true, 'mensagem' => 'Arquivo(s) anexado(s) com sucesso .'));
+        }
+    }
+    public function excluirAnexo($id = null)
+    {
+        if ($id == null || !is_numeric($id)) {
+            echo json_encode(array('result' => false, 'mensagem' => 'Erro ao tentar excluir anexo.'));
+        } else {
+
+            $this->db->where('idAnexos', $id);
+            $file = $this->db->get('anexos_produtos', 1)->row();
+
+            unlink($file->path . '/' . $file->anexo);
+
+            if ($file->thumb != null) {
+                unlink($file->path . '/thumbs/' . $file->thumb);
+            }
+
+            if ($this->produtos_model->delete('anexos_produtos', 'idAnexos', $id) == true) {
+
+                log_info('Removeu anexo de uma OS.');
+                echo json_encode(array('result' => true, 'mensagem' => 'Anexo excluído com sucesso.'));
+            } else {
+                echo json_encode(array('result' => false, 'mensagem' => 'Erro ao tentar excluir anexo.'));
+            }
+        }
     }
 
     public function visualizar()
@@ -167,7 +265,7 @@ class Produtos extends MY_Controller
 
     public function excluir()
     {
-        if (!$this->permission->checkPermission($this->session->userdata('permissao'), 'dProduto')) {
+        if (!$this->permission->checkPermission($this->session->userdata('permissao'), 'idProduto')) {
             $this->session->set_flashdata('error', 'Você não tem permissão para excluir produtos.');
             redirect(base_url());
         }

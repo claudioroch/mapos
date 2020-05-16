@@ -32,24 +32,24 @@
                 <span class="icon">
                     <i class="fas fa-shopping-bag"></i>
                 </span>
-                <h5>Cadastro de Produto</h5>
+                <h5>Editar Produto</h5>
             </div>
             <div class="widget-content nopadding">
                 <?php echo $custom_error; ?>
                 <form action="<?php echo current_url(); ?>" id="formProduto" method="post" class="form-horizontal">
                     <div class="control-group">
-                            <label for="codDeBarra" class="control-label">Código de Barra<span class=""></span></label>
-                            <div class="controls">
-                                <input id="codDeBarra"  type="text" name="codDeBarra" value="<?php echo set_value('codDeBarra'); ?>" />
-                            </div>
+                        <?php echo form_hidden('idProdutos', $result->idProdutos) ?>
+                        <label for="codDeBarra" class="control-label">Código de Barra<span class=""></span></label>
+                        <div class="controls">
+                            <input id="codDeBarra" type="text" name="codDeBarra" value="<?php echo $result->codDeBarra; ?>" />
                         </div>
+                    </div>
                     <div class="control-group">
-                        <label for="produto" class="control-label">Produto<span class="required">*</span></label>
+                        <label for="produto" class="control-label">produto<span class="required">*</span></label>
                         <div class="controls">
                             <input id="produto" type="text" name="produto" value="<?php echo set_value('produto'); ?>" />
                         </div>
                     </div>
-                
                     <div class="control-group">
                         <label for="embalagem" class="control-label">Embalagem<span class="required">*</span></label>
                         <div class="controls">
@@ -71,76 +71,88 @@
                     <div class="control-group">
                         <label for="descricao" class="control-label">Descrição<span class="required">*</span></label>
                         <div class="controls">
-                            <textarea name="descricao" id="descricao" cols="30" rows="10"><?php echo set_value('descricao'); ?></textarea>
+                            <input id="descricao" type="text" name="descricao" value="<?php echo $result->descricao; ?>" />
                         </div>
                     </div>
+
                     <div class="control-group">
                         <label class="control-label">Tipo de Movimento</label>
                         <div class="controls">
                             <label for="entrada" class="btn btn-default" style="margin-top: 5px;">Entrada
-                                <input type="checkbox" id="entrada" name="entrada" class="badgebox" value="1" checked>
+                                <input type="checkbox" id="entrada" name="entrada" class="badgebox" value="1" <?= ($result->entrada == 1) ? 'checked' : '' ?>>
                                 <span class="badge">&check;</span>
                             </label>
                             <label for="saida" class="btn btn-default" style="margin-top: 5px;">Saída
-                                <input type="checkbox" id="saida" name="saida" class="badgebox" value="1" checked>
+                                <input type="checkbox" id="saida" name="saida" class="badgebox" value="1" <?= ($result->saida == 1) ? 'checked' : '' ?>>
                                 <span class="badge">&check;</span>
                             </label>
                         </div>
                     </div>
+
                     <div class="control-group">
                         <label for="precoCompra" class="control-label">Preço Diluído<span class="required">*</span></label>
                         <div class="controls">
-                            <input id="precoCompra" class="money" type="text" name="precoCompra" value="<?php echo set_value('precoCompra'); ?>" />
+                            <input id="precoCompra" class="money" type="text" name="precoCompra" value="<?php echo $result->precoCompra; ?>" />
                         </div>
                     </div>
+
                     <div class="control-group">
                         <label for="precoVenda" class="control-label">Preço de Venda<span class="required">*</span></label>
                         <div class="controls">
-                            <input id="precoVenda" class="money" type="text" name="precoVenda" value="<?php echo set_value('precoVenda'); ?>" />
+                            <input id="precoVenda" class="money" type="text" name="precoVenda" value="<?php echo $result->precoVenda; ?>" />
                         </div>
                     </div>
+
                     <div class="control-group">
                         <label for="unidade" class="control-label">Unidade<span class="required">*</span></label>
                         <div class="controls">
-                         
                             <select id="unidade" name="unidade">
-                                <option value="UN">Unidade</option>
-                                <option value="LT">Litro</option>
-                                <option value="CX">Caixa</option>
-                                <option value="OT">Outro</option>
+                                <option value="UN" <?= ($result->unidade == 'UN') ? 'selected' : '' ?>>Unidade</option>
+                                <option value="LT" <?= ($result->unidade == 'LT') ? 'selected' : '' ?>>Litro</option>
+                                <option value="CX" <?= ($result->unidade == 'CX') ? 'selected' : '' ?>>Caixa</option>
+                                <option value="OT" <?= ($result->unidade == 'OT') ? 'selected' : '' ?>>Outro</option>
                             </select>
                         </div>
                     </div>
+
                     <div class="control-group">
                         <label for="estoque" class="control-label">Estoque<span class="required">*</span></label>
                         <div class="controls">
-                            <input id="estoque" type="text" name="estoque" value="<?php echo set_value('estoque'); ?>" />
+                            <input id="estoque" type="text" name="estoque" value="<?php echo $result->estoque; ?>" />
                         </div>
                     </div>
+
                     <div class="control-group">
                         <label for="estoqueMinimo" class="control-label">Estoque Mínimo</label>
                         <div class="controls">
-                            <input id="estoqueMinimo" type="text" name="estoqueMinimo" value="<?php echo set_value('estoqueMinimo'); ?>" />
+                            <input id="estoqueMinimo" type="text" name="estoqueMinimo" value="<?php echo $result->estoqueMinimo; ?>" />
                         </div>
                     </div>
+
                     <div class="form-actions">
                         <div class="span12">
                             <div class="span6 offset3">
-                                <button type="submit" class="btn btn-danger"><i class="fas fa-plus"></i> Adicionar</button>
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-sync-alt"></i> Atualizar</button>
                                 <a href="<?php echo base_url() ?>index.php/produtos" id="" class="btn"><i class="fas fa-backward"></i> Voltar</a>
                             </div>
                         </div>
                     </div>
+
+
                 </form>
             </div>
+
         </div>
     </div>
 </div>
+
+
 <script src="<?php echo base_url() ?>assets/js/jquery.validate.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/maskmoney.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $(".money").maskMoney();
+
         $('#formProduto').validate({
             rules: {
                 descricao: {
@@ -200,6 +212,7 @@
                     required: 'Campo Requerido.'
                 }
             },
+
             errorClass: "help-inline",
             errorElement: "span",
             highlight: function(element, errorClass, validClass) {
