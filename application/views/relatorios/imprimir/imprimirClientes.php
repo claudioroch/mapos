@@ -34,7 +34,7 @@
                                 <thead>
                                     <tr>
                                         <th style="font-size: 1.2em; padding: 5px;">Nome</th>
-                                        <th style="font-size: 1.2em; padding: 5px;">Documento</th>
+                                        <th style="font-size: 1.2em; padding: 5px;">Responsável</th>
                                         <th style="font-size: 1.2em; padding: 5px;">Telefone</th>
                                         <th style="font-size: 1.2em; padding: 5px;">Email</th>
                                         <th style="font-size: 1.2em; padding: 5px;">Cadastro</th>
@@ -48,7 +48,7 @@
                                             <?= $c->nomeCliente ?>
                                         </td>
                                         <td>
-                                            <?= $c->documento ?>
+                                            <?= $c->responsavel ?>
                                         </td>
                                         <td>
                                             <?= $c->telefone ?>

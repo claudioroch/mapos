@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <title>MPires</title>
+    <title>MPires<?= $title ?>
+    </title>
     <meta charset="UTF-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,20 +15,23 @@
 </head>
 
 <body style="background-color: transparent">
-
     <div class="container-fluid">
 
         <div class="row-fluid">
             <div class="span12">
 
                 <div class="widget-box">
-                    <div class="widget-title">
-                        <h4 style="text-align: center">Produtos</h4>
-                    </div>
-                    <div class="widget-content nopadding">
+                    <?= $topo ?>
+                        <div class="widget-title">
+                            <h4 style="text-align: center">
+                                <?= $title ?>
+                            </h4>
+                            <br>
+                        </div>
+                        <div class="widget-content nopadding">
 
-                        <table class="table table-bordered">
-                            <thead>
+                            <table class="table table-bordered">
+                                <thead>
                                 <tr>
                                     <th style="font-size: 1.2em; padding: 5px;">Nome</th>
                                     <th style="font-size: 1.2em; padding: 5px;">UN</th>

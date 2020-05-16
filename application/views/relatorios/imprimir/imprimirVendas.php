@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <title>MAPOS</title>
+    <title>MPires<?= $title ?>
+    </title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" />
@@ -13,20 +14,24 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 
-<body style="background-color: transparent">
+<<body style="background-color: transparent">
     <div class="container-fluid">
 
         <div class="row-fluid">
             <div class="span12">
 
                 <div class="widget-box">
-                    <div class="widget-title">
-                        <h4 style="text-align: center">Vendas</h4>
-                    </div>
-                    <div class="widget-content nopadding">
+                    <?= $topo ?>
+                        <div class="widget-title">
+                            <h4 style="text-align: center">
+                                <?= $title ?>
+                            </h4>
+                            <br>
+                        </div>
+                        <div class="widget-content nopadding">
 
-                        <table class="table table-bordered">
-                            <thead>
+                            <table class="table table-bordered">
+                                <thead>
                                 <tr>
                                     <th style="font-size: 1.2em; padding: 5px;">Cliente</th>
                                     <th style="font-size: 1.2em; padding: 5px;">Total</th>
@@ -54,6 +59,6 @@
             </div>
         </div>
     </div>
-</body>
+</>
 
 </html>

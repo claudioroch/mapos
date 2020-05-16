@@ -95,10 +95,13 @@ class Relatorios extends MY_Controller
             $this->session->set_flashdata('error', 'Você não tem permissão para gerar relatórios de produtos.');
             redirect(base_url());
         }
-
+        $data['title'] = 'Relatório de Produtos';
         $data['produtos'] = $this->Relatorios_model->produtosRapid();
+        $data['emitente'] = $this->Mapos_model->getEmitente();
+        $data['topo'] = $this->load->view('relatorios/imprimir/imprimirTopo', $data, true);
 
         $this->load->helper('mpdf');
+        
         $html = $this->load->view('relatorios/imprimir/imprimirProdutos', $data, true);
         pdf_create($html, 'relatorio_produtos' . date('d/m/y'), true);
     }
