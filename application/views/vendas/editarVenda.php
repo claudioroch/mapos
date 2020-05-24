@@ -95,7 +95,7 @@
                                                 $preco = $p->preco ?: $p->precoVenda;
                                                 $total = $total + $p->subTotal;
                                                 echo '<tr>';
-                                                echo '<td>' . $p->descricao . '</td>';
+                                                echo '<td>' . $p->produtos . '</td>';
                                                 echo '<td>' . $p->quantidade . '</td>';
                                                 echo '<td>' . $preco . '</td>';
                                                 echo '<td><a href="" idAcao="' . $p->idItens . '" prodAcao="' . $p->idProdutos . '" quantAcao="' . $p->quantidade . '" title="Excluir Produto" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>';
@@ -130,8 +130,8 @@
         <div class="modal-body">
             <div class="span12 alert alert-info" style="margin-left: 0"> Obrigatório o preenchimento dos campos com asterisco.</div>
             <div class="span12" style="margin-left: 0">
-                <label for="descricao">Descrição</label>
-                <input class="span12" id="descricao" type="text" name="descricao" value="Fatura de Venda - #<?php echo $result->idVendas; ?> " />
+                <label for="produto">Produto</label>
+                <input class="span12" id="produto" type="text" name="produto" value="Fatura de Venda - #<?php echo $result->idVendas; ?> " />
             </div>
             <div class="span12" style="margin-left: 0">
                 <div class="span12" style="margin-left: 0">

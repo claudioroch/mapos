@@ -101,6 +101,40 @@
                                     <tr>
                                         <td colspan="4"></td>
                                     </tr>
+                                    <tr>
+
+                                        <td>
+                                            <label>
+                                                <input name="vComodato" class="marcar" type="checkbox" checked="checked" value="1" />
+                                                <span class="lbl"> Visualizar Equipamento</span>
+                                            </label>
+                                        </td>
+
+                                        <td>
+                                            <label>
+                                                <input name="aComodato" class="marcar" type="checkbox" value="1" />
+                                                <span class="lbl"> Adicionar Equipamento</span>
+                                            </label>
+                                        </td>
+
+                                        <td>
+                                            <label>
+                                                <input name="eComodato" class="marcar" type="checkbox" value="1" />
+                                                <span class="lbl"> Editar Equipamento</span>
+                                            </label>
+                                        </td>
+
+                                        <td>
+                                            <label>
+                                                <input name="dComodato" class="marcar" type="checkbox" value="1" />
+                                                <span class="lbl"> Excluir Equipamento</span>
+                                            </label>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4"></td>
+                                    </tr>
 
                                     <tr>
 

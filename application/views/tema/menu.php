@@ -16,6 +16,12 @@
     }; ?>"><a href="<?= site_url('produtos') ?>"><i class="fas fa-shopping-bag"></i> <span>Produtos</span></a></li>
     <?php
     } ?>
+    <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vComodato')) { ?>
+      <li class="<?php if (isset($menuComodato)) {
+        echo 'active';
+    }; ?>"><a href="<?= site_url('comodato') ?>"><i class="fas fa-archive"></i> <span>Comodato</span></a></li>
+    <?php
+    } ?>
     <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vServico')) { ?>
       <li class="<?php if (isset($menuServicos)) {
         echo 'active';

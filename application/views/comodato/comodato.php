@@ -1,5 +1,5 @@
-<?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'aProduto')) { ?>
-    <a href="<?php echo base_url(); ?>index.php/produtos/adicionar" class="btn btn-success"><i class="fas fa-plus"></i> Adicionar Produto</a>
+<?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'aComodato')) { ?>
+    <a href="<?php echo base_url(); ?>index.php/comodato/adicionar" class="btn btn-success"><i class="fas fa-plus"></i> Adicionar Comodato</a>
     <a href="#modal-etiquetas" role="button" data-toggle="modal" class="btn btn-success span2" style="float: right;">
         <i class="fas fa-barcode"></i> Gerar Etiquetas</a>
 
@@ -8,19 +8,18 @@
 <div class="widget-box">
     <div class="widget-title">
         <span class="icon">
-            <i class="fas fa-shopping-bag"></i>
+            <i class="fas fa-archive"></i>
         </span>
-        <h5>Produtos</h5>
+        <h5>Comodato</h5>
     </div>
     <div class="widget-content nopadding">
         <table class="table table-bordered ">
             <thead>
             <tr style="backgroud-color: #2D335B">
-                <th>Cod. Produto</th>
-                <th>Código de Barra</th>
-                <th>Produto</th>
-                <th>Preço</th>
-                <th>Preço Diluído</th>
+                <th>ID Comodato</th>
+                <th>Cod. Equipamento</th>
+                <th>Equipamento</th>
+                <th>Fabricante</th>
             </tr>
             </thead>
             <tbody>
@@ -28,31 +27,29 @@
 
             if (!$results) {
                 echo '<tr>
-                                <td colspan="5">Nenhum Produto Cadastrado</td>
+                                <td colspan="5">Nenhum Equipamento Cadastrado</td>
                                 </tr>';
             }
             foreach ($results as $r) {
                 echo '<tr>';
-                echo '<td>' . $r->idProdutos . '</td>';
-                echo '<td>' . $r->codDeBarra . '</td>';
-                echo '<td>' . $r->produto . '</td>';
-                echo '<td>' . number_format($r->precoVenda, 2, ',', '.') . '</td>';
-                echo '<td>' . number_format($r->precoCompra, 2, ',', '.') . '</td>';
-                // echo '<td>' . $r->precoVenda . '</td>';
+                echo '<td>' . $r->idComodato . '</td>';
+                echo '<td>' . $r->codComodato . '</td>';
+                echo '<td>' . $r->comodato . '</td>';
+                echo '<td>' . $e->Fabricante . '</td>';
                 
                 echo '<td>';
-                if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vProduto')) {
-                    echo '<a style="margin-right: 1%" href="' . base_url() . 'index.php/produtos/visualizar/' . $r->idProdutos . '" class="btn tip-top" title="Visualizar Produto"><i class="fas fa-eye"></i></a>  ';
+                if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vComodato')) {
+                    echo '<a style="margin-right: 1%" href="' . base_url() . 'index.php/comodato/visualizar/' . $r->idComodato . '" class="btn tip-top" title="Visualizar Comodato"><i class="fas fa-eye"></i></a>  ';
                 }
-                if ($this->permission->checkPermission($this->session->userdata('permissao'), 'eProduto')) {
-                    echo '<a style="margin-right: 1%" href="' . base_url() . 'index.php/produtos/editar/' . $r->idProdutos . '" class="btn btn-info tip-top" title="Editar Produto"><i class="fas fa-edit"></i></a>';
+                if ($this->permission->checkPermission($this->session->userdata('permissao'), 'eComodato')) {
+                    echo '<a style="margin-right: 1%" href="' . base_url() . 'index.php/comodato/editar/' . $r->idComodato . '" class="btn btn-info tip-top" title="Editar Comodato"><i class="fas fa-edit"></i></a>';
                 }
-                if ($this->permission->checkPermission($this->session->userdata('permissao'), 'dProduto')) {
-                    echo '<a style="margin-right: 1%" href="#modal-excluir" role="button" data-toggle="modal" produto="' . $r->idProdutos . '" class="btn btn-danger tip-top" title="Excluir Produto"><i class="fas fa-trash-alt"></i></a>';
+                if ($this->permission->checkPermission($this->session->userdata('permissao'), 'dComodato')) {
+                    echo '<a style="margin-right: 1%" href="#modal-excluir" role="button" data-toggle="modal" comodato="' . $r->idComodato . '" class="btn btn-danger tip-top" title="Excluir Comodato"><i class="fas fa-trash-alt"></i></a>';
                 }
-                if ($this->permission->checkPermission($this->session->userdata('permissao'), 'eProduto')) {
-                    echo '<a href="#atualizar-estoque" role="button" data-toggle="modal" produto="' . $r->idProdutos . '" estoque="' . $r->estoque . '" class="btn btn-primary tip-top" title="Atualizar Estoque"><i class="fas fa-plus-square"></i></a>';
-                }
+                // if ($this->permission->checkPermission($this->session->userdata('permissao'), 'eComodato')) {
+                //     echo '<a href="#atualizar-estoque" role="button" data-toggle="modal" comodato="' . $r->idComodato . '" estoque="' . $r->estoque . '" class="btn btn-primary tip-top" title="Atualizar Estoque"><i class="fas fa-plus-square"></i></a>';
+                // }
                 echo '</td>';
                 echo '</tr>';
             } ?>
@@ -64,14 +61,14 @@
 
 <!-- Modal -->
 <div id="modal-excluir" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <form action="<?php echo base_url() ?>index.php/produtos/excluir" method="post">
+    <form action="<?php echo base_url() ?>index.php/comodato/excluir" method="post">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h5 id="myModalLabel"><i class="fas fa-trash-alt"></i> Excluir Produto</h5>
+            <h5 id="myModalLabel"><i class="fas fa-trash-alt"></i> Excluir Comodato</h5>
         </div>
         <div class="modal-body">
-            <input type="hidden" id="idProduto" class="idProduto" name="id" value=""/>
-            <h5 style="text-align: center">Deseja realmente excluir este produto?</h5>
+            <input type="hidden" id="idComodato" class="idComodato" name="id" value=""/>
+            <h5 style="text-align: center">Deseja realmente excluir este equipamento?</h5>
         </div>
         <div class="modal-footer">
             <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
@@ -81,8 +78,8 @@
 </div>
 
 <!-- Modal Estoque -->
-<div id="atualizar-estoque" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <form action="<?php echo base_url() ?>index.php/produtos/atualizar_estoque" method="post" id="formEstoque">
+<!-- <div id="atualizar-estoque" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <form action="?php echo base_url() ?>index.php/comodato/atualizar_estoque" method="post" id="formEstoque">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h5 id="myModalLabel"><i class="fas fa-plus-square"></i> Atualizar Estoque</h5>
@@ -96,9 +93,9 @@
             </div>
 
             <div class="control-group">
-                <label for="estoque" class="control-label">Adicionar Produtos<span class="required">*</span></label>
+                <label for="estoque" class="control-label">Adicionar Comodato<span class="required">*</span></label>
                 <div class="controls">
-                    <input type="hidden" id="idProduto" class="idProduto" name="id" value=""/>
+                    <input type="hidden" id="idComodato" class="idComodato" name="id" value=""/>
                     <input id="estoque" type="text" name="estoque" value=""/>
                 </div>
             </div>
@@ -108,17 +105,17 @@
             <button class="btn btn-primary">Atualizar</button>
         </div>
     </form>
-</div>
+</div> -->
 
-<!-- Modal Etiquetas -->
+<!-- Modal Etiquetas
 <div id="modal-etiquetas" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <form action="<?php echo base_url() ?>index.php/relatorios/produtosEtiquetas" method="get">
+    <form action="/?php echo base_url() ?>index.php/relatorios/comodatoEtiquetas" method="get">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h5 id="myModalLabel">Gerar etiquetas com Código de Barras</h5>
         </div>
         <div class="modal-body">
-            <div class="span12 alert alert-info" style="margin-left: 0"> Escolha o intervalo de produtos para gerar as etiquetas.</div>
+            <div class="span12 alert alert-info" style="margin-left: 0"> Escolha o intervalo de comodato para gerar as etiquetas.</div>
 
             <div class="span12" style="margin-left: 0;">
                 <div class="span6" style="margin-left: 0;">
@@ -156,17 +153,15 @@
             <button class="btn btn-success">Gerar</button>
         </div>
     </form>
-</div>
+</div> -->
 
 <script src="<?php echo base_url() ?>assets/js/jquery.validate.js"></script>
-<!-- Modal Etiquetas e Estoque-->
+ Modal Etiquetas e Estoque
 <script type="text/javascript">
     $(document).ready(function () {
         $(document).on('click', 'a', function (event) {
-            var produto = $(this).attr('produto');
-            var estoque = $(this).attr('estoque');
-            $('.idProduto').val(produto);
-            $('#estoqueAtual').val(estoque);
+            var comodato = $(this).attr('comodato');
+            $('.idComodato').val(comodato);
         });
 
         $('#formEstoque').validate({

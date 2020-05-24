@@ -35,8 +35,8 @@
                                 <tr>
                                     <th style="font-size: 1.2em; padding: 5px;">Nome</th>
                                     <th style="font-size: 1.2em; padding: 5px;">UN</th>
-                                    <th style="font-size: 1.2em; padding: 5px;">Preço Compra</th>
                                     <th style="font-size: 1.2em; padding: 5px;">Preço Venda</th>
+                                    <th style="font-size: 1.2em; padding: 5px;">Preço Diluído</th>
                                     <th style="font-size: 1.2em; padding: 5px;">Estoque</th>
                                 </tr>
                             </thead>
@@ -44,10 +44,10 @@
                                 <?php
                                     foreach ($produtos as $p) {
                                         echo '<tr>';
-                                        echo '<td>' . $p->descricao . '</td>';
+                                        echo '<td>' . $p->produto . '</td>';
                                         echo '<td>' . $p->unidade . '</td>';
-                                        echo '<td>' . $p->precoCompra . '</td>';
                                         echo '<td>' . $p->precoVenda . '</td>';
+                                        echo '<td>' . $p->precoCompra . '</td>';
                                         echo '<td>' . $p->estoque . '</td>';
                                         echo '</tr>';
                                     }

@@ -147,6 +147,52 @@
                                     </td>
                                  
                                 </tr>
+                                <!-- ********* -->
+                                <td>
+                                        <label>
+                                            <input <?php if (isset($permissoes['vComodato'])) {
+    if ($permissoes['vComodato'] == '1') {
+        echo 'checked';
+    }
+}?> name="vComodato" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Visualizar Equipamentos</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if (isset($permissoes['aComodato'])) {
+    if ($permissoes['aComodato'] == '1') {
+        echo 'checked';
+    }
+}?> name="aComodato" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Adicionar Equipamentos</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if (isset($permissoes['eComodato'])) {
+    if ($permissoes['eComodato'] == '1') {
+        echo 'checked';
+    }
+}?> name="eComodato" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Editar Equipamentos</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if (isset($permissoes['dComodato'])) {
+    if ($permissoes['dComodato'] == '1') {
+        echo 'checked';
+    }
+}?> name="dComodato" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Excluir Equipamentos</span>
+                                        </label>
+                                    </td>
+                                 
+                                </tr>
                                 <tr><td colspan="4"></td></tr>
                                 
                                 <tr>

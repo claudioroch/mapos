@@ -56,6 +56,14 @@
                     </a>
                 </li>
             <?php endif ?>
+
+            <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vComodato')) : ?>
+                <li class="bg_lo">
+                    <a href="<?= base_url() ?>index.php/comodato"> <i class="fas fa-archive" style="font-size:36px"></i>
+                        <div>Equipamentos <span class="badge badge-light">F8</span></div>
+                    </a>
+                </li>
+            <?php endif ?>
         </ul>
     </div>
 </div>

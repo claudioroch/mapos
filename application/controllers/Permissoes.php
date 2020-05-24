@@ -70,6 +70,11 @@ class Permissoes extends MY_Controller
                 'dProduto' => $this->input->post('dProduto'),
                 'vProduto' => $this->input->post('vProduto'),
 
+                'aComodato' => $this->input->post('aComodato'),
+                'eComodato' => $this->input->post('eComodato'),
+                'dComodato' => $this->input->post('dComodato'),
+                'vComodato' => $this->input->post('vComodato'),
+
                 'aServico' => $this->input->post('aServico'),
                 'eServico' => $this->input->post('eServico'),
                 'dServico' => $this->input->post('dServico'),
@@ -115,6 +120,7 @@ class Permissoes extends MY_Controller
 
                 'rCliente' => $this->input->post('rCliente'),
                 'rProduto' => $this->input->post('rProduto'),
+                'rComodato' => $this->input->post('rComodato'),
                 'rServico' => $this->input->post('rServico'),
                 'rOs' => $this->input->post('rOs'),
                 'rVenda' => $this->input->post('rVenda'),
@@ -166,6 +172,11 @@ class Permissoes extends MY_Controller
                 'dProduto' => $this->input->post('dProduto'),
                 'vProduto' => $this->input->post('vProduto'),
 
+                'aComodato' => $this->input->post('aComodato'),
+                'eComodato' => $this->input->post('eComodato'),
+                'dComodato' => $this->input->post('dComodato'),
+                'vComodato' => $this->input->post('vComodato'),
+
                 'aServico' => $this->input->post('aServico'),
                 'eServico' => $this->input->post('eServico'),
                 'dServico' => $this->input->post('dServico'),
@@ -211,6 +222,7 @@ class Permissoes extends MY_Controller
 
                 'rCliente' => $this->input->post('rCliente'),
                 'rProduto' => $this->input->post('rProduto'),
+                'rComodato' => $this->input->post('rComodato'),
                 'rServico' => $this->input->post('rServico'),
                 'rOs' => $this->input->post('rOs'),
                 'rVenda' => $this->input->post('rVenda'),
